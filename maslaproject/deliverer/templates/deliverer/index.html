@@ -16,7 +16,7 @@
             {% if forloop.counter|divisibleby:4 %}
             </div><br>
             <br>
-            <br><div class="card-deck"><div class="card shadow-lg  rounded" data-order="{{ order.id }}">
+            <br><div class="card-deck"><div style="max-width: 33%; height: auto;" class="card shadow-lg  rounded" data-order="{{ order.id }}">
         
               <div class="card-body ">
                 <h5 class="card-title">Delivery status</h5>
@@ -54,7 +54,7 @@
                 </div>
             </div>
             {% else %}
-            <div class="card shadow-lg  rounded" data-order="{{ order.id }}">
+            <div class="card shadow-lg  rounded" style="max-width: 33%; height: auto;"  data-order="{{ order.id }}">
         
               <div class="card-body ">
                 <h5 class="card-title">Delivery status</h5>

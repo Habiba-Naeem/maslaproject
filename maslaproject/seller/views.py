@@ -85,8 +85,8 @@ def register(request):
                 seller = Seller.objects.create(user=user,phone_number=phone_number, restaurant=restaurant)
                 messages.success(request, "Account created")
 
-                log = authenticate(request, email=email, password=password)
-                login(request, log)
+                #log = authenticate(request, email=email, password=password)
+                #login(request, log)
 
                 return HttpResponseRedirect(reverse('login_seller'))
         else:

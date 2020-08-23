@@ -14,7 +14,9 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+MEDIA_URL = "/media/"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -23,10 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'gl4isfpupwk_1^vdp-m%*&f7t#c(@_ht&s^)f8+ec3i&n7gt^j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
 ALLOWED_HOSTS = ['maslaproject-env.eba-ha4bxser.us-west-2.elasticbeanstalk.com']
-
+#ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -116,6 +118,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+
+"""STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)"""
+
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'

@@ -2,9 +2,7 @@
 {% load static %}
 {% block content %}
 {% csrf_token %}
-<section class="cart">
-  {% csrf_token %}
-  <article class="cart">
+
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-warning" role="alert">
@@ -18,8 +16,8 @@
           <br><br>
       </div>
       
-      <div class="contents mx-auto" style="width: 700px;">
-
+      <div class="contents mx-auto" style="max-width: 700px; background-color: rgba(255,255,240, 0.8);">
+        <div class="table-responsive">
         <table id="table">
             <thead>
                 <tr class="begin-row">
@@ -32,7 +30,7 @@
             </thead>
             <tbody>
                 {% for cart_item in cart_items %}
-                <tr class="row" id="{{ cart_item.id }}">
+                <tr class="row" style="display: table-row; flex-wrap: nowrap;" id="{{ cart_item.id }}">
                     <td class="mx-auto table-data table-name" style="width: 60px;" id="product-name">{{ cart_item.product.dish.restaurant.name }}
                     </td>
                     <td class="table-data table-name mx-auto " style="width: 60px;">{{cart_item.product.dish.name}}
@@ -52,11 +50,10 @@
                 {% endfor%}
             </tbody>
         </table>
-       
+       </div>
+
     </div>
       
-  </article>
-</section>
 <section class="checkout">
   <article class="checkout">
     <div>
@@ -114,8 +111,8 @@
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">Total
-            <label name="total" id="total"></label></span>
-            
+            </span>
+            <span name="total" id="total"></span>
             <input type="hidden" name="total" id="totalhidden">
         </div>
     </div>
@@ -145,7 +142,7 @@
         <br>
         <br>
         <div class="card-deck">
-          <div class="card shadow-lg  rounded">
+          <div class="card shadow-lg  rounded" style="max-width: 33%; height: auto;">
     
           <div class="card-body ">
             <h5 class="card-title">Delivery status</h5>
@@ -182,7 +179,7 @@
           
         </div>
         {% else %}
-        <div class="card shadow-lg  rounded">
+        <div class="card shadow-lg  rounded" style="max-width: 33%; height: auto;">
     
           <div class="card-body ">
             <h5 class="card-title">Delivery status</h5>

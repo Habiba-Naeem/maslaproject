@@ -71,8 +71,8 @@ def register(request):
                 user = User.objects.create_user(user_type=1, first_name=first_name, last_name=last_name, email=email, password=password)
                 messages.success(request, "Account created")
 
-                user_log = authenticate(request, email=email, password=password)
-                login(request, user_log)
+                #user_log = authenticate(request, email=email, password=password)
+                #login(request, user_log)
 
                 return HttpResponseRedirect(reverse('login_user'))
         else:

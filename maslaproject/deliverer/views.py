@@ -73,8 +73,8 @@ def register(request):
                 deliverer = Deliverer.objects.create(user = user,vehicle_number = vehicle_number, phone_number = phone_number)
                 messages.success(request, "Account created")
 
-                user_log = authenticate(request, email=email, password=password)
-                login(request, user_log)
+                #user_log = authenticate(request, email=email, password=password)
+                #login(request, user_log)
 
                 return HttpResponseRedirect(reverse('login_deliverer'))
         else:
