@@ -25,10 +25,10 @@ MEDIA_URL = "/media/"
 SECRET_KEY = 'gl4isfpupwk_1^vdp-m%*&f7t#c(@_ht&s^)f8+ec3i&n7gt^j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = True
 
-ALLOWED_HOSTS = ['maslaproject-env.eba-ha4bxser.us-west-2.elasticbeanstalk.com']
-#ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['maslaproject-env.eba-ha4bxser.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
