@@ -10,17 +10,21 @@ from cart.models import *
 
 def index(request): 
     if request.user.is_authenticated:
-        deliverer = Deliverer.objects.get(user=request.user)
-        orders = Order.objects.filter(deliverer=deliverer)
-        delivered = orders.filter(status=True).count()
-        pending = orders.filter(status=False).count()
-        context = {
-            "name": request.user.first_name,
-            "orders": orders,
-            "delivered": delivered, 
-            "pending": pending
-        }
-        return render(request, "deliverer/index.html", context)
+        user = User.objects.get(email = request.user).user_type
+        if user ==  3:
+            deliverer = Deliverer.objects.get(user=request.user)
+            orders = Order.objects.filter(deliverer=deliverer)
+            delivered = orders.filter(status=True).count()
+            pending = orders.filter(status=False).count()
+            context = {
+                "name": request.user.first_name,
+                "orders": orders,
+                "delivered": delivered, 
+                "pending": pending
+            }
+            return render(request, "deliverer/index.html", context)
+        else:
+            logout(request)
     return HttpResponseRedirect(reverse('register_deliverer'))
 
 def login_user(request):

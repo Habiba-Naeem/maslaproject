@@ -13,7 +13,7 @@
       <br>
       <div class="card-deck">
         {% for order in orders %}
-            {% if forloop.counter|divisibleby:4 %}
+            {% if forloop.counter0|divisibleby:3 %}
             </div><br>
             <br>
             <br><div class="card-deck"><div style="max-width: 33%; height: auto;" class="card shadow-lg  rounded" data-order="{{ order.id }}">

@@ -11,11 +11,15 @@ from .forms import ImageForm
 
 def index(request): 
     if request.user.is_authenticated:
-        context = {
-            "name": request.user.first_name,
-            "restaurant": Seller.objects.get(user=request.user).restaurant.name
-        }
-        return render(request, "seller/index.html", context)
+        user = User.objects.get(email = request.user).user_type
+        if user == 2:
+            context = {
+                "name": request.user.first_name,
+                "restaurant": Seller.objects.get(user=request.user).restaurant.name
+            }
+            return render(request, "seller/index.html", context)
+        else:
+            logout(request)
     return HttpResponseRedirect(reverse('register_seller'))
 
 def login_user(request):
@@ -84,9 +88,6 @@ def register(request):
                 restaurant = Restaurant.objects.create(name=name, address=address, category=category, picture=picture)
                 seller = Seller.objects.create(user=user,phone_number=phone_number, restaurant=restaurant)
                 messages.success(request, "Account created")
-
-                #log = authenticate(request, email=email, password=password)
-                #login(request, log)
 
                 return HttpResponseRedirect(reverse('login_seller'))
         else:

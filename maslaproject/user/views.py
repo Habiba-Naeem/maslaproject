@@ -9,13 +9,17 @@ from seller.models import *
 # Create your views here.
 
 def index(request): 
-    if request.user.is_authenticated:
-        context ={
-            "name":request.user.first_name,
-            "restaurants": Restaurant.objects.all(),
-            "category": Restaurant_category
-        }
-        return render(request, 'user/index.html', context)
+    if request.user.is_authenticated:        
+        user = User.objects.get(email = request.user).user_type
+        if user == 1:
+            context ={
+                "name":request.user.first_name,
+                "restaurants": Restaurant.objects.all(),
+                "category": Restaurant_category
+            }
+            return render(request, 'user/index.html', context)
+        else:
+            logout(request)
     context = {
         "restaurants": Restaurant.objects.all(),
         "category": Restaurant_category
@@ -90,6 +94,12 @@ def browseRestaurants(request):
     }
     return render(request,'user/browseRestaurants.html', context)
 
+def browseRestaurants_oncategory(request, category):
+    context = {
+        "restaurants": Restaurant.objects.filter(category = category)
+    }
+    return render(request,'user/browseRestaurants.html', context)
+
 def restaurant(request, nameof):
     print(nameof)
     restaurant_name = Restaurant.objects.get(name=nameof)
@@ -97,6 +107,7 @@ def restaurant(request, nameof):
     context = {
         "restaurant_name": restaurant_name,
         "dishes": dishes,
-        "restaurants": Restaurant.objects.all()
+        "restaurants": Restaurant.objects.all(),
+        "name": request.user.first_name
     }
     return render(request, 'user/menu.html', context)
