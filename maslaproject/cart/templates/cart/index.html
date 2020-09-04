@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 {% csrf_token %}
-
+<link rel="stylesheet" href="{% static 'cart/cart.css'%}">
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-warning" role="alert">
@@ -10,50 +10,42 @@
     </div>
     {% endfor %}
     {% else %}
-      <div>
-          <br><br>
-          <h1 class="mx-auto font-weight-bolder" style="width: 250px;">Your cart</h1>
-          <br><br>
-      </div>
-      
-      <div class="contents mx-auto" style="max-width: 700px; background-color: rgba(255,255,240, 0.8);">
-        <div class="table-responsive">
-        <table id="table">
-            <thead>
-                <tr class="begin-row">
-                    <th class="h4 font-weight-bold mx-auto table-heading col" style="width: 150px;">Resturant</th>
-                    <th class="h4 font-weight-bold mx-auto table-heading col" style="width: 150px;">Dish</th>
-                    <th class="h4 font-weight-bold mx-auto table-heading col" style="width: 150px;">Quantity</th>
-                    <th class="h4 font-weight-bold mx-auto table-heading col" style="width: 150px;">Total</th>
-                    <th class="h4 font-weight-bold mx-auto table-heading col" style="width: 70px;" id="lasthead"></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for cart_item in cart_items %}
-                <tr class="row" style="display: table-row; flex-wrap: nowrap;" id="{{ cart_item.id }}">
-                    <td class="mx-auto table-data table-name" style="width: 60px;" id="product-name">{{ cart_item.product.dish.restaurant.name }}
-                    </td>
-                    <td class="table-data table-name mx-auto " style="width: 60px;">{{cart_item.product.dish.name}}
-                        <div class="inside-row">
-                            <label id="product-price" data-price="{{ cart_item.product.dish.price }}">Rs {{ cart_item.product.dish.price }}</label>
-                            <br>
-                        </div>
-                    </td>
-                    <td class="mx-auto table-data" style="width: 125px;" id="cart-item-quantity">
-                        <div class="properties-div">
-                            <input type="number" id="quantity" name="quantity" min="1" max="50" value="1">
-                        </div>
-                    </td>
-                    <td class=" mx-auto table-data" style="width: 125px;" id="cart-item-total" data-=""></td>
-                    <td class="table-data"><button class="btn btn-secondary cancel">Cancel</button></td>
-                </tr>
-                {% endfor%}
-            </tbody>
-        </table>
-       </div>
 
-    </div>
-      
+    <section class="container content-section">
+      <h2 class="section-header">CART</h2>
+      <div class="cart-row">
+          <span class="cart-item cart-header cart-column">ITEM</span>
+          <span class="cart-price cart-header cart-column">PRICE</span>
+          <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+      </div>
+      <div class="cart-items">
+        {% for cart_item in cart_items %}
+        <div class="cart-row my-rows" id="{{ cart_item.id }}">
+          <div class="cart-item cart-column">
+            {% if cart_item.product.dish.picture.url %}
+            <img class="img-fluid rounded" src="{{ cart_item.product.dish.picture.url }}" style="max-width: 20%; height:auto;">
+           {% endif %}
+              <span class="cart-item-title">{{cart_item.product.dish.name}}</span>
+              
+              <small>By {{ cart_item.product.dish.restaurant.name }}</small>
+          </div>
+          <span class="cart-price cart-column" data-="" id="product-price"  data-price="{{ cart_item.product.dish.price }}">{{cart_item.product.dish.price}}</span>
+          
+          <div class="cart-quantity cart-column" >
+              <input class="cart-quantity-input" id="quantity" name="quantity" type="number" min="1" max="50" value="1">
+              <button class="btn btn-danger cancel" type="button">REMOVE</button>
+          </div>
+        </div>
+        {% endfor%}
+      </div>
+      <div class="cart-total" >
+          <strong class="cart-total-title">Total</strong>
+          <span class="cart-total-price" name="total" id="total">$0</span>
+          <input type="hidden" name="total" id="totalhidden">
+      </div>
+      <button class="btn btn-primary btn-purchase" type="button">Checkout</button>
+    </section>
+ 
 <section class="checkout">
   <article class="checkout">
     <div>

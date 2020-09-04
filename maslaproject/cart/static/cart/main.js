@@ -1,6 +1,6 @@
 function count(){
     var count = 0;
-    document.querySelectorAll("#cart-item-total").forEach( t =>{
+    document.querySelectorAll("#product-price").forEach( t =>{
         count = parseFloat(t.dataset.total) + count;
     })
     document.querySelector("#total").textContent = "Rs" + count.toFixed(2);
@@ -9,22 +9,24 @@ function count(){
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    var rows = document.querySelectorAll(".row");
+    var rows =  document.querySelectorAll(".my-rows");
     var cancel = document.querySelectorAll(".cancel");
 
     rows.forEach( row => {
         const prices = row.querySelector("#product-price");
+        console.log(prices)
         const quantity = row.querySelector("#quantity");
-        var total = row.querySelector("#cart-item-total");
-    
-        total.textContent = "Rs" +  (prices.dataset.price * parseInt(quantity.value)).toFixed(2);
-        total.setAttribute("data-total", `${(prices.dataset.price * parseInt(quantity.value)).toFixed(2)}`);
+        //var total = row.querySelector("#cart-item-total");
+        console.log(row)
+        prices.textContent = "Rs" +  (prices.dataset.price * parseInt(quantity.value)).toFixed(2);
+        prices.setAttribute("data-total", `${(prices.dataset.price * parseInt(quantity.value)).toFixed(2)}`);
         
         quantity.addEventListener("change",()=>{
-            total.textContent = "Rs" +  (prices.dataset.price * parseInt(quantity.value)).toFixed(2);
-            total.setAttribute("data-total", `${(prices.dataset.price * parseInt(quantity.value)).toFixed(2)}`);
+            console.log(prices)
+            prices.textContent = "Rs " +  (prices.dataset.price * parseInt(quantity.value)).toFixed(2);
+            prices.setAttribute("data-total", `${(prices.dataset.price * parseInt(quantity.value)).toFixed(2)}`);
             count();
-
+            console.log(row)
             const request = new XMLHttpRequest();
             request.open('GET', `/cart/quantity/${row.id}/${quantity.value}`);
 
@@ -44,8 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = parent.id;
             console.log(id);
 
-            var table = document.querySelector("#table");
-            table.deleteRow(parent.rowIndex);
+            parent.remove();
             count();
 
             const request = new XMLHttpRequest();
