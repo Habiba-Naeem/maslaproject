@@ -1,8 +1,8 @@
 .overall{
-    background-color: #FEB921;
+    background-color: #D7E6EE;
 }
 .dark-brown{
-    color: #722910;
+    color: #4B85A4;
 }
 img:hover{
     cursor: pointer;
@@ -14,8 +14,7 @@ img:hover{
     background-attachment: fixed;
     background-position: 50% 50%;
    background-repeat: no-repeat;
-      background-color: #FEB921;
-  
+      background-color: #265772;
 }
 .m123 {
     margin: 11% !important;
