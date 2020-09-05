@@ -1,18 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     //buttons
-    //var add_to_cart = document.querySelectorAll(".add-to-cart");
+    var add_to_cart = document.querySelectorAll(".add-to-cart");
     //var add_to_cart = document.getElementsByClassName('popup');
-    //add_to_cart.forEach(cart => {
-    //add the selected product to cart
-    //cart.addEventListener("click", () => {
-    document.addEventListener('click', event => {
+    add_to_cart.forEach(cart => {
+        //add the selected product to cart
+        cart.addEventListener("click", () => {
 
-        const element = event.target;
-        if (element.className === "popup") {
+            //document.addEventListener('click', event => {
 
-            var dishdiv = element.parentElement;
+            //const element = event.target;
+            //if (element.className === "popup") {
+
+            var dishdiv = cart.parentElement;
             //alert(dishdiv.innerHTML);
             dishid = dishdiv.dataset.dishid;
+            //alert(dishid);
             var restaurantid = dishdiv.dataset.restaurant_nameid;
 
             //the object item
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = JSON.parse(request.responseText);
                 if (data.success) {
                     //alert("Added to cart!");
-                    var popup = document.getElementById('myPopup');
+                    var popup = document.getElementById(dishid);
                     popup.classList.toggle("show");
 
                     /*    setTimeout(() => {
@@ -44,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             request.send();
             return false;
-        }
+        })
     })
 
 })
+
