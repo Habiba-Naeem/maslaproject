@@ -1,13 +1,13 @@
 {% extends "seller/layout.html"%}
 {% load static %}
 {% block content %}
-<div class="row justify-content-center p-5 register-login-div">
-    <div class="col-md-6">
-        <div class="card" style="padding:3%;font-weight: bold;">
+<div class="row justify-content-center p-5 mt-5 register-login-div">
+    <div class="col-md-7">
+        <div class="card" style="padding:3%;">
             <header class="card-header">
-                <h4 class="card-title text-center mt-2" style="font-size: 36px;">Register</h4>
+                <h4 class="card-title text-center mt-2" style="font-size: 36px; color:black; font-family: Metal Mania !important; ">Register</h4>
             </header>
-            <article class="card-body">
+            <article class="card-body" style="font-weight: bold;">
                 <form method="post" action="{% url 'register_seller' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-row">
@@ -56,8 +56,8 @@
                     </div> <!-- form-group end.// -->
                     {{ form.as_p }}
                     <div class="form-group">
-                        <button type="submit" id="register-button" class="btn btn-block"
-                            style="background-color: #FEB921; font-weight:bold; color:#722910;"> Register as a Seller
+                        <button type="submit" id="register-button" class="btn btn-block p-2"
+                            style="background-color: #265772; color: white;"> Register as a Seller
                         </button>
                     </div> <!-- form-group// -->
                     <small class="text-muted">By clicking the 'Register' button, you confirm that you accept our <b>

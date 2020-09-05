@@ -1,10 +1,10 @@
 {% extends "seller/layout.html"%}
 {% load static %}
 {% block content %}
-<h1 class="mt-5 pt-4 pb-3" style=" font-weight:bold; text-align: center;">Update {{ name }} here</h1>
+<h1 class="mt-5 pt-4 pb-3" style=" font-weight:bold; font-family: Metal Mania; text-align: center;">Update {{ name }} here</h1>
 <form method="post" action="{% url 'itemupdated' dish_id=dish_id %}"  enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="card px-4 mx-5" style=" font-weight: bold; margin-left: 8% !important; margin-right:8% !important;">
+    <div class="card px-4 mx-5 pt-2" style=" font-weight: bold; color: #265772; margin-left: 8% !important; margin-right:8% !important;">
         <article class="card-body">
             <form>
                 <div class="form-row">
@@ -50,7 +50,7 @@
                             <input type="radio" id="dish_glutten_free_yes" class="form-check-input"
                                 name="dish_glutten_free" value="Yes">
                             {% endif %}
-                            <span class="form-check-label" style="font-weight: normal; color:rgb(117, 55, 55);">
+                            <span class="form-check-label" style="font-weight: normal; color:black;">
                                 Yes </span>
                         </label>
                         <label class="form-check form-check-inline">
@@ -61,7 +61,7 @@
                             <input type="radio" class="form-check-input" id="dish_glutten_free_no"
                                 name="dish_glutten_free" value="No">
                             {% endif %}
-                            <span class="form-check-label" style="font-weight: normal; color:rgb(117, 55, 55);">
+                            <span class="form-check-label" style="font-weight: normal; color:black;">
                                 No </span>
                         </label>
                     </div> <!-- form-group end.// -->
@@ -75,7 +75,7 @@
                             <input type="radio" class="form-check-input" id="dish_customizable_yes"
                                 name="dish_customizable" value="Yes">
                             {% endif %}
-                            <span class="form-check-label" style="font-weight: normal; color:rgb(117, 55, 55);">
+                            <span class="form-check-label" style="font-weight: normal; color:black;">
                                 Yes </span>
                         </label>
                         <label class="form-check form-check-inline">
@@ -86,7 +86,7 @@
                             <input type="radio" class="form-check-input" id="dish_gcustomizable_no"
                                 name="dish_customizable" value="No">
                             {% endif %}
-                            <span class="form-check-label" style="font-weight: normal; color:rgb(117, 55, 55);">
+                            <span class="form-check-label" style="font-weight: normal; color:black;">
                                 No </span>
                         </label>
                     </div> <!-- form-group end.// -->
@@ -116,7 +116,7 @@
                 </div> <!-- form-group end.// -->
                 <div class="form-group  mt-4 text-center ">
                     <button type="submit" class="btn btn-primary  p-1.5 px-5 rounded"
-                        style="background-color: #FEB921; font-weight:bold; font-size:19px; color:#722910;"
+                        style="background-color: #265772; font-weight:bold; font-size:19px; color:white;"
                         id="dish-update-button">Update</button>
                 </div> <!-- form-group// -->
             </form>

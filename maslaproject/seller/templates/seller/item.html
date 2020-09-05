@@ -1,14 +1,14 @@
 {% extends "seller/layout.html"%}
 {% load static %}
 {% block content %}
-<h1 class="mt-5 pt-4 pb-3" style=" font-weight:bold; text-align: center;">{{ name }} </h1>
+<h1 class="mt-5 pt-4 pb-3" style=" font-weight:bold; font-family: Metal Mania; text-align: center;">{{ name }} </h1>
 <div class="text-center">
 {% if dish.picture %}
     <img  class="img-fluid img-thumbnail" src="{{ dish.picture.url }}" style="max-width: 50%; height: auto;" >
 {% endif %}
 </div>
 <br>
-<table class="table table-bordered table-striped bg-light mb-4" style="color:rgb(143, 49, 49);">
+<table class="table table-bordered table-striped bg-light mb-4" style="color:#4B85A4;">
     <thead>
         <th scope="col" style=" font-size:22px;" >Dish</th>
         <th scope="col" style=" font-size:20px;">{{ name }}</th>
@@ -53,9 +53,9 @@
 </table>
 <div class="text-center mb-5">
     <a href="{% url 'updateitem' dish_id=dish_id %}" role="button" class="btn btn-dark justify-content-center btn-lg "
-        style="background-color: #722910;" aria-disabled="false">Update</a>
+        style="background-color: #265772; color:white; " aria-disabled="false">Update</a>
     <a href="{% url 'deleteitem' dish_id=dish_id %}" role="button" class="btn btn-dark justify-content-center btn-lg "
-        style="background-color: #722910;" aria-disabled="false">Delete</a>
+        style="background-color: #265772;color:white; " aria-disabled="false">Delete</a>
 </div>
 
 
