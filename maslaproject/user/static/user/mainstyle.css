@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
+@import url("https://fonts.googleapis.com/css?family=Metal+Mania");
+
+@font-face {
+    font-family: "Booter - Zero Zero";
+    src: url("Fonts/Booter - Zero Zero.woff") format("woff"),
+         url("Fonts/Booter - Zero Zero.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
 .card-img-top{
     height:50% !important;
 }
@@ -20,8 +31,8 @@
     margin:1.2% !important;
 }
 body{
-    background-color: #FEB921;
-    color: #722910;
+  background-color: #D7E6EE;
+  color: #4B85A4;
 }
 .btn-warning{
     background-color:rgb(63, 186, 207) !important;
