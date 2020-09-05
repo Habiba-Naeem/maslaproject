@@ -28,11 +28,11 @@
                         </div> <!-- form-group end.// -->
                         <div class="form-group">
                             <label>Vehicle Number</label>
-                            <input type="text"  class="form-control" name="vehicle_number" required>
+                            <input type="text" class="form-control" name="vehicle_number" required>
                         </div> <!-- form-group end.// -->
                         <div class="form-group">
                             <label>Phone Number</label>
-                            <input type="text"  class="form-control" maxlength="20" name="phone_number" required>
+                            <input type="text" class="form-control" maxlength="20" name="phone_number" required>
                         </div> <!-- form-group end.// -->
                         <div class="form-group">
                             <label>Create password</label>
@@ -44,23 +44,25 @@
                         </div> <!-- form-group end.// -->
                         <div class="form-group">
                             <button type="submit" id="register-button" class="btn btn-block"
-                                style="background-color: #FEB921; font-weight:bold; color:#722910;"> Register as a Deliverer
+                                style="background-color: #FEB921; font-weight:bold; color:#722910;"> Register as a
+                                Deliverer
                             </button>
                         </div> <!-- form-group// -->
                         <small class="text-muted">By clicking the 'Register' button, you confirm that you accept our <b>
                                 Terms of use</b> and <b>Privacy Policy.</b></small>
                     </form>
                 </article> <!-- card-body end .// -->
-                <div class="border-top card-body text-center">Have an account? <a href="login.html">Log In</a></div>
+                <div class="border-top card-body text-center">Have an account? <a href="{% url 'login_deliverer'%}">Log
+                        In</a></div>
             </div> <!-- card.// -->
-            
+
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-danger" role="alert">
                 {{message}}
             </div>
             {% endfor%}
-        {% endif %}
+            {% endif %}
         </div> <!-- col.//-->
 
     </div> <!-- row.//-->

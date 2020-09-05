@@ -120,3 +120,26 @@ def order(request):
         return render(request, "cart/index.html")
     messages.warning(request, "Your cart is empty.")
     return render(request, "cart/index.html")
+
+def vieworders(request):
+    if request.user.is_authenticated:
+        cart = Cart.objects.get(user=request.user)
+        try:
+            orders = Order.objects.filter(user=request.user)
+            context = {
+                "name": request.user.first_name,
+               # "cart_items": Cart_Item.objects.filter(cart=cart),
+                "restaurants": Restaurant.objects.all(),
+                'payment_choices': payment_choice,
+                "orders": orders
+            }
+        except Order.DoesNotExist:
+            context = {
+                "name": request.user.first_name,
+               # "cart_items": Cart_Item.objects.filter(cart=cart),
+                "restaurants": Restaurant.objects.all(),
+                'payment_choices': payment_choice
+            }
+
+    return render(request, "cart/order.html", context)
+    

@@ -7,7 +7,8 @@
     <br>
     <div class="text-center">
         {% if restaurant_name.picture %}
-            <img class="img-fluid img-thumbnail" src="{{ restaurant_name.picture.url }}" style="max-width: 50%; height:auto;">
+        <img class="img-fluid img-thumbnail" src="{{ restaurant_name.picture.url }}"
+            style="max-width: 50%; height:auto;">
         {% endif %}
     </div>
     <br>
@@ -18,7 +19,7 @@
         data-restaurant_nameid="{{ restaurant_name.id }}">
         <p>
             {% if dish.picture.url %}
-                      <img class="img-fluid rounded" src="{{ dish.picture.url }}" style="max-width: 20%; height:auto;">
+            <img class="img-fluid rounded" src="{{ dish.picture.url }}" style="max-width: 20%; height:auto;">
             {% endif %}
             <br>
             <b> {{ dish.name }} </b>
@@ -31,10 +32,14 @@
             </small>
             <br>
             <b>Rs {{ dish.price }} </b>
-                
-                <button class="rounded overall cartbtn float-right border-0 dark-brown add-to-cart">Add to Cart</button>
-                  
-            </p>
+
+            <!--  <button class="rounded overall cartbtn float-right border-0 dark-brown add-to-cart">Add to Cart</button>-->
+
+        <div class="popup">Add to cart
+            <span class="popuptext" id="myPopup">Item added to cart</span>
+        </div>
+
+        </p>
     </div>
     {% endfor %}
 
