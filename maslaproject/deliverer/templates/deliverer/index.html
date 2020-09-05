@@ -50,8 +50,11 @@
                 <b>Bill Amount:</b> <span class="float-right"> Rs {{ order.order_items.total }}
                     <br>
                     
-                <button type="button"  class="btn btn-outline-warning confirm_delivery">Confirm delivery</button>
+                <!-- <button type="button"  class="btn btn-outline-warning confirm_delivery">Confirm delivery</button> -->
+                <div class="popup">Confirm delivery
+                  <span class="popuptext" id="myPopupD">Successful</span>
                 </div>
+              </div>
             </div>
             {% else %}
             <div class="card shadow-lg  rounded" style="max-width: 33%; height: auto;"  data-order="{{ order.id }}">
@@ -88,8 +91,11 @@
                 <b>Bill Amount:</b> <span class="float-right"> Rs {{ order.order_items.total }}
                     <br>
                     
-                <button type="button"  class="btn btn-outline-warning confirm_delivery">Confirm delivery</button>
+                <!-- <button type="button"  class="btn btn-outline-warning confirm_delivery">Confirm delivery</button> -->
+                <div class="popup">Confirm delivery
+                  <span class="popuptext" id="myPopupD">Successful</span>
                 </div>
+              </div>
             </div>
               {% endif %}             
             <br>

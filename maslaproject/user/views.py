@@ -104,10 +104,17 @@ def restaurant(request, nameof):
     print(nameof)
     restaurant_name = Restaurant.objects.get(name=nameof)
     dishes = Dish.objects.filter(restaurant=restaurant_name)
-    context = {
-        "restaurant_name": restaurant_name,
-        "dishes": dishes,
-        "restaurants": Restaurant.objects.all(),
-        "name": request.user.first_name
-    }
+    try:
+        context = {
+            "restaurant_name": restaurant_name,
+            "dishes": dishes,
+            "restaurants": Restaurant.objects.all(),
+            "name": request.user.first_name
+        }
+    except AttributeError:
+        context = {
+            "restaurant_name": restaurant_name,
+            "dishes": dishes,
+            "restaurants": Restaurant.objects.all()
+        }
     return render(request, 'user/menu.html', context)

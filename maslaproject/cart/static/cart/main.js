@@ -5,13 +5,28 @@ function count(){
     })
     document.querySelector("#total").textContent = "Rs" + count.toFixed(2);
     document.querySelector("#totalhidden").value = count.toFixed(2);
+    document.querySelector("#checkout_total").textContent = "Rs" + count.toFixed(2);
+    document.querySelector("#totalhidden2").value = count.toFixed(2);
+    
     return count.toFixed(2);    
 }
 
+document.addEventListener('click', event => {
+
+    const element = event.target;
+    if (element.id === "btn-purchase") {
+        var checkoutform = document.getElementById('checkout-form');
+        checkoutform.style.display = "block";
+    }
+})
 document.addEventListener('DOMContentLoaded', () => {
     var rows =  document.querySelectorAll(".my-rows");
     var cancel = document.querySelectorAll(".cancel");
-
+    var checkout = document.getElementById('checkout-form');
+    console.log(checkout);
+    checkout.style.display = "none";
+    
+    
     rows.forEach( row => {
         const prices = row.querySelector("#product-price");
         console.log(prices)
@@ -56,5 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
             
         })
+    })
+
+    var purchase = document.querySelector(".btn-purchase");
+    purchase.addEventListener("click", ()=>{
+        checkout.style.display = "block"; 
     })
 })
