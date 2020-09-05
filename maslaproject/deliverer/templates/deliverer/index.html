@@ -52,8 +52,8 @@
     <div class="card-footer">
       <b>Bill Amount:</b> <span class="float-right"> Rs {{ order.order_items.total }}
         <br>
-        <div class="popup">Confirm delivery
-          <span class="popuptext" id="myPopupD">Successful</span>
+        <div class="popup confirm-delivery">Confirm delivery
+          <span class="popuptext" id="{{ order.id }}">Successful</span>
         </div>
         <!--<button type="button" class="btn btn-outline-warning confirm_delivery">Confirm delivery</button>-->
     </div>
@@ -93,9 +93,9 @@
       <b>Bill Amount:</b> <span class="float-right"> Rs {{ order.order_items.total }}
         <br>
 
-        <!-- <button type="button"  class="btn btn-outline-warning confirm_delivery">Confirm delivery</button> -->
-        <div class="popup">Confirm delivery
-          <span class="popuptext" id="myPopupD">Successful</span>
+        <!--<button type="button" class="btn btn-outline-warning confirm_delivery">Confirm delivery</button>-->
+        <div class="popup confirm-delivery">Confirm delivery
+          <span class="popuptext" id="{{ order.id }}">Successful</span>
         </div>
     </div>
   </div>
